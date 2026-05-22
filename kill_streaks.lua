@@ -105,6 +105,7 @@ events.player_death:set(function(e)
     if not attacker or not victim then return end
 
     if victim == me then
+        kills = 0
         check_auto_rs()
     end
 
