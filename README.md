@@ -37,10 +37,6 @@ Unreal Tournament / Quake). Их легко найти в гугле по зап
 
 ### 1. Скрипт
 
-1. Открой Neverlose → **LUA** → **Add script**.
-2. Выбери файл `kill_streaks.lua` из этого репозитория.
-3. Включи скрипт галочкой.
-
 В меню чита появится секция **Kill Streaks** с настройками:
 
 - **Включить стрики** — главный переключатель.
@@ -82,22 +78,10 @@ CS:GO не любит — конвертируй в WAV (Audacity / ffmpeg).
 ### 3. Картинки (`images/`)
 
 В репозитории уже лежат 5 готовых PNG-баннеров (размер 1280×512, соотношение
-2.5:1). Положи их в папку Neverlose со скриптами:
+2.5:1).
 
-```
-%localappdata%\neverlose\
-```
-
-Точнее, скрипт грузит файлы по пути `streaks/first_blood.png` через
-`render.load_image_from_file`. Это означает, что **картинки должны лежать
-в той же папке, откуда Neverlose грузит сам Lua-скрипт**, во вложенной папке
-`streaks`. Например:
-
-```
-%localappdata%\neverlose\scripts\streaks\first_blood.png
-%localappdata%\neverlose\scripts\streaks\double_kill.png
-…
-```
+Точнее, скрипт грузит файлы по пути `steam\steamapps\common\csgo legacy\csgo\streaks` через
+`render.load_image_from_file`.
 
 Если картинки не загрузятся — увидишь стрик без баннера, звук всё равно
 сыграет. Скрипт кэширует результат `pcall(render.load_image_from_file, …)`
@@ -106,28 +90,6 @@ CS:GO не любит — конвертируй в WAV (Audacity / ffmpeg).
 Свои картинки можно подсунуть с теми же именами — главное соотношение сторон
 **~2.5:1**, иначе будет растянуто. Под ультравайд скрипт сам ограничивает
 ширину баннера (привязка к высоте экрана).
-
----
-
-## Структура файлов после установки
-
-```
-…\Counter-Strike Global Offensive\csgo\sound\streaks\
-   ├─ first_blood.wav
-   ├─ double_kill.wav
-   ├─ triple_kill.wav
-   ├─ quadra_kill.wav
-   └─ penta_kill.wav
-
-%localappdata%\neverlose\scripts\
-   ├─ kill_streaks.lua
-   └─ streaks\
-      ├─ first_blood.png
-      ├─ double_kill.png
-      ├─ triple_kill.png
-      ├─ dominating.png
-      └─ rampage.png
-```
 
 ---
 
